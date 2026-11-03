@@ -119,7 +119,7 @@ export default function Hero() {
           <div className="relative aspect-square w-48 overflow-hidden rounded-full bg-gradient-to-tr from-primary via-accent to-highlight p-[3px] shadow-2xl shadow-primary/40 sm:w-56 md:w-60">
             <div className="h-full w-full overflow-hidden rounded-full bg-soft">
               <img
-                src="/assets/images/shravya_professional.png"
+                src={`${import.meta.env.BASE_URL}assets/images/shravya_professional.png`}
                 alt="Shravya Tagilapalli"
                 className="h-full w-full object-cover object-center"
               />

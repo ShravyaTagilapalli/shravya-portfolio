@@ -13,7 +13,7 @@ export const profile = {
   email: 'tshravya05@gmail.com',
   linkedin: 'https://www.linkedin.com/in/shravya-tagilapalli-26234bb1/',
   resumeAvailable: true,
-  resumeUrl: '/Shravya_Tagilapalli_Resume.docx',
+  resumeUrl: `${import.meta.env.BASE_URL}Shravya_Tagilapalli_Resume.docx`,
 };
 
 export const highlights = [

@@ -5,7 +5,7 @@ export const rejectShopCaseStudy = {
   cardDescription:
     'Developed as part of my Certified Data Analyst course at The Data Analytics Institute (TDAI), this assignment demonstrates an end-to-end Excel analytics workflow involving data preparation, exploratory data analysis (EDA), PivotTable analysis, and interactive dashboard development using native Excel charts and slicers.',
   academicNote: 'Academic project | Synthetic dataset | Microsoft Excel',
-  workbookPath: '/assets/files/projects/data-analytics/The_Reject_Shop_Sales_Dashboard_Output.xlsx',
+  workbookPath: `${import.meta.env.BASE_URL}assets/files/projects/data-analytics/The_Reject_Shop_Sales_Dashboard_Output.xlsx`,
   workbookFileName: 'The_Reject_Shop_Sales_Dashboard_Output.xlsx',
   cardBadges: ['Excel', 'EDA', 'Pivot Analysis', 'Slicers', 'Dashboard'],
   category: 'TDAI Course Assignment',
@@ -126,6 +126,6 @@ export const rejectShopCaseStudy = {
 } as const;
 
 export const rejectShopDashboardImage = {
-  src: '/assets/images/projects/data-analytics/Capture.PNG',
+  src: `${import.meta.env.BASE_URL}assets/images/projects/data-analytics/Capture.PNG`,
   alt: 'Screenshot of The Reject Shop Excel sales dashboard with PivotTables, slicers, and native charts',
 } as const;
