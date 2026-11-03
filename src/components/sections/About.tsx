@@ -25,6 +25,20 @@ const journey = [
   { label: 'Modern Data Engineering', icon: Code2 },
 ];
 
+const highlightPattern = /(Shravya Tagilapalli|Data Analytics)/;
+
+function highlightTerms(text: string) {
+  return text.split(highlightPattern).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-accent-text">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function About() {
   return (
     <section id="about" className="relative py-20 sm:py-24">
@@ -38,15 +52,17 @@ export default function About() {
           }
         />
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mt-6 max-w-3xl text-center text-base leading-[1.6] text-muted sm:text-lg"
+          className="mx-auto mt-8 max-w-3xl space-y-5 text-base leading-[1.75] text-muted sm:text-lg"
         >
-          {profile.intro}
-        </motion.p>
+          {profile.about.split('\n\n').map((paragraph) => (
+            <p key={paragraph}>{highlightTerms(paragraph)}</p>
+          ))}
+        </motion.div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <motion.div

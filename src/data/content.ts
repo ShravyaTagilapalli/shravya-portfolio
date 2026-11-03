@@ -6,8 +6,6 @@ export const profile = {
     'Business Intelligence Enthusiast',
   ],
   subtitle: 'Aspiring Data Analyst | SQL & Reporting Professional',
-  intro:
-    "I'm an IT professional with approximately 6.5 years of experience in Production Support, Functional Consulting, and Oracle Retail applications. With a foundation in SQL, reporting, and enterprise business processes, I'm now transitioning into Data Analytics, developing skills in Power BI, Tableau, Python, and Excel.",
   about:
     "Hi, I'm Shravya Tagilapalli, an IT professional with approximately 6.5 years of experience in enterprise application support and functional consulting, primarily working with Oracle Retail applications.\n\nThroughout my career, I have developed strong analytical problem-solving skills through SQL-based troubleshooting, production incident investigation, reporting, data validation, and collaboration with business and technical stakeholders. My experience with SQL, Unix shell scripting, SAP Crystal Reports, and Oracle BI Publisher has given me a solid foundation in working with enterprise data and understanding business processes.\n\nI'm now transitioning into Data Analytics and expanding my skills in Python, Power BI, Tableau, and Excel. My goal is to combine my technical and functional background with analytical skills to deliver meaningful business insights.\n\nI'm actively seeking opportunities to grow and contribute as a Data Analyst.",
   email: 'tshravya05@gmail.com',
