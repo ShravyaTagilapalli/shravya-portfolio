@@ -112,7 +112,7 @@ function SqlBlock({ item, index }: { item: { label: string; description: string;
               <button
                 type="button"
                 onClick={copy}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-soft bg-soft/60 px-2.5 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-primary"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-soft bg-[var(--bg-soft)] px-2.5 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-accent-text"
               >
                 {copied ? <ClipboardCheck className="h-3.5 w-3.5 text-accent" /> : <Clipboard className="h-3.5 w-3.5" />}
                 {copied ? 'Copied' : 'Copy'}
@@ -141,7 +141,7 @@ function BarRow({ label, value, max, color }: { label: string; value: number; ma
   return (
     <div className="flex items-center gap-3">
       <div className="w-24 shrink-0 text-xs text-muted">{label}</div>
-      <div className="relative h-3 flex-1 overflow-hidden rounded-full bg-soft">
+      <div className="relative h-3 flex-1 overflow-hidden rounded-full bg-[var(--bg-soft)]">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${(value / max) * 100}%` }}
@@ -200,13 +200,13 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
               type="button"
               onClick={onClose}
               aria-label="Close case study"
-              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-soft bg-soft/60 text-muted transition hover:text-primary"
+              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-soft bg-[var(--bg-soft)] text-muted transition hover:text-accent-text"
             >
               <X className="h-4 w-4" />
             </button>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary to-accent px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-ink">
                 <Lightbulb className="h-3.5 w-3.5" />
                 Simulated Case Study
               </span>
@@ -223,7 +223,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
               {c.technologies.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-soft bg-soft/60 px-3 py-1.5 text-xs font-medium text-muted"
+                  className="rounded-full border border-soft bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-muted"
                 >
                   {t}
                 </span>
@@ -398,7 +398,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
                         whileInView={{ height: `${(c.charts.openVsResolved.open / openClosedTotal) * 120}px` }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: 'easeOut' }}
-                        className="w-16 rounded-t-lg bg-soft ring-1 ring-soft"
+                        className="w-16 rounded-t-lg bg-[var(--bg-soft)] ring-1 ring-[var(--border)]"
                       />
                       <div className="mt-2 text-xs font-semibold">{c.charts.openVsResolved.open}</div>
                       <div className="text-[10px] text-muted">Open</div>
@@ -432,7 +432,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
             {/* Problem Management */}
             <section className="mt-8">
               <SectionTitle>Problem Management — Eliminating Recurring Production Issues</SectionTitle>
-              <p className="mt-3 rounded-2xl border border-soft bg-soft/40 p-4 text-sm leading-relaxed text-muted">
+              <p className="mt-3 rounded-2xl border border-soft bg-[var(--bg-soft)] p-4 text-sm leading-relaxed text-muted">
                 {c.problemSummary}
               </p>
 
@@ -480,7 +480,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
                           transition={{ duration: 0.35, delay: i * 0.05 }}
                           className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary/15 to-accent/15 px-4 py-2.5 ring-1 ring-primary/20"
                         >
-                          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-white">
+                          <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-ink">
                             <Icon className="h-4 w-4" />
                           </span>
                           <div>
@@ -582,7 +582,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
                 {c.skills.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-soft bg-soft/60 px-3 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-primary"
+                    className="rounded-full border border-soft bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-accent-text"
                   >
                     {s}
                   </span>
@@ -590,7 +590,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
               </div>
             </section>
 
-            <div className="mt-8 flex items-start gap-2 rounded-2xl border border-soft bg-soft/40 p-4 text-xs leading-relaxed text-muted">
+            <div className="mt-8 flex items-start gap-2 rounded-2xl border border-soft bg-[var(--bg-soft)] p-4 text-xs leading-relaxed text-muted">
               <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span>{c.disclaimer}</span>
             </div>
@@ -599,7 +599,7 @@ export default function IncidentProblemCaseStudyModal({ open, onClose }: Props) 
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-ink shadow-md shadow-primary/20 transition hover:-translate-y-0.5"
               >
                 <CheckCircle2 className="h-4 w-4" />
                 Close

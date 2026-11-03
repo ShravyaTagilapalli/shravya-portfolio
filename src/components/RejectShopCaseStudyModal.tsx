@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CheckCircle2, Lightbulb, Maximize2, ShieldAlert, X } from 'lucide-react';
+import { CheckCircle2, FileSpreadsheet, Lightbulb, Maximize2, ShieldAlert, X } from 'lucide-react';
 
 import DashboardLightbox from '@/components/DashboardLightbox';
 import { rejectShopCaseStudy, rejectShopDashboardImage } from '@/data/rejectShopCaseStudy';
@@ -18,7 +18,7 @@ function DashboardPreview() {
         type="button"
         onClick={() => setEnlarged(true)}
         aria-label="Enlarge dashboard preview"
-        className="group relative mt-4 block w-full overflow-hidden rounded-2xl border border-soft bg-soft/40 transition hover:border-primary/40"
+        className="group relative mt-4 block w-full overflow-hidden rounded-2xl border border-soft bg-[var(--bg-soft)] transition hover:border-primary/40"
       >
         <img src={rejectShopDashboardImage.src} alt={rejectShopDashboardImage.alt} className="w-full" loading="lazy" />
         <span className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-black/60 text-white opacity-0 transition group-hover:opacity-100">
@@ -76,13 +76,13 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
               type="button"
               onClick={onClose}
               aria-label="Close case study"
-              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-soft bg-soft/60 text-muted transition hover:text-primary"
+              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-soft bg-[var(--bg-soft)] text-muted transition hover:text-accent-text"
             >
               <X className="h-4 w-4" />
             </button>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent to-highlight px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-ink">
                 <Lightbulb className="h-3.5 w-3.5" />
                 {c.category}
               </span>
@@ -99,7 +99,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
             <section className="mt-8">
               <SectionTitle>Problem Statement</SectionTitle>
               <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">{c.problemStatement}</p>
-              <p className="mt-3 rounded-2xl border border-soft bg-soft/40 p-4 text-sm leading-relaxed text-muted">
+              <p className="mt-3 rounded-2xl border border-soft bg-[var(--bg-soft)] p-4 text-sm leading-relaxed text-muted">
                 {c.overview}
               </p>
             </section>
@@ -121,7 +121,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
                 {c.stages.map((stage, i) => (
                   <div key={stage.title} className="rounded-2xl border border-soft glass p-5">
                     <div className="flex items-center gap-2">
-                      <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-accent to-highlight text-xs font-bold text-white">
+                      <span className="grid h-7 w-7 place-items-center rounded-lg bg-primary text-xs font-bold text-ink">
                         {i + 1}
                       </span>
                       <h5 className="font-display text-sm font-semibold">{stage.title}</h5>
@@ -167,7 +167,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
               <ol className="mt-4 grid gap-3 sm:grid-cols-2">
                 {c.charts.map((chart, i) => (
                   <li key={chart.title} className="flex items-start gap-3 rounded-2xl border border-soft glass p-4">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-accent/20 to-highlight/20 text-xs font-bold text-accent">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-accent/20 to-highlight/20 text-xs font-bold text-accent-text">
                       {i + 1}
                     </span>
                     <div>
@@ -178,7 +178,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
                 ))}
               </ol>
               {c.supportingViews.map((v) => (
-                <p key={v} className="mt-3 rounded-xl border border-soft bg-soft/40 p-3 text-xs text-muted">
+                <p key={v} className="mt-3 rounded-xl border border-soft bg-[var(--bg-soft)] p-3 text-xs text-muted">
                   Also included: {v}
                 </p>
               ))}
@@ -204,7 +204,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
               <ol className="mt-4 space-y-2">
                 {c.businessQuestions.map((q, i) => (
                   <li key={q} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
-                    <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/10 text-xs font-bold text-accent">
+                    <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent/10 text-xs font-bold text-accent-text">
                       {i + 1}
                     </span>
                     <span>{q}</span>
@@ -219,9 +219,9 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
                 {c.tools.map((t) => (
                   <span
                     key={t}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-soft bg-soft/60 px-3 py-1.5 text-xs font-medium text-muted"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-soft bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-muted"
                   >
-                    <FileSpreadsheet className="h-3.5 w-3.5 text-accent" />
+                    <FileSpreadsheet className="h-3.5 w-3.5 text-accent-text" />
                     {t}
                   </span>
                 ))}
@@ -246,7 +246,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
                 {c.skillBadges.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-soft bg-soft/60 px-3 py-1.5 text-xs font-medium text-muted transition hover:border-accent/40 hover:text-accent"
+                    className="rounded-full border border-soft bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-muted transition hover:border-accent/40 hover:text-accent-text"
                   >
                     {s}
                   </span>
@@ -254,7 +254,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
               </div>
             </section>
 
-            <div className="mt-8 flex items-start gap-2 rounded-2xl border border-soft bg-soft/40 p-4 text-xs leading-relaxed text-muted">
+            <div className="mt-8 flex items-start gap-2 rounded-2xl border border-soft bg-[var(--bg-soft)] p-4 text-xs leading-relaxed text-muted">
               <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span>{c.disclaimer}</span>
             </div>
@@ -263,7 +263,7 @@ export default function RejectShopCaseStudyModal({ open, onClose }: Props) {
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-ink shadow-md shadow-primary/20 transition hover:-translate-y-0.5"
               >
                 <CheckCircle2 className="h-4 w-4" />
                 Close

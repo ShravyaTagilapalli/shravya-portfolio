@@ -6,7 +6,7 @@ import { getIcon } from '@/components/icons';
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="relative py-14 sm:py-20">
+    <section id="expertise" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading
           eyebrow="Expertise"
@@ -28,22 +28,19 @@ export default function Expertise() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.06 }}
-                whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-2xl glass gradient-border p-6"
+                whileHover={{ y: -4 }}
+                className="card-surface group relative overflow-hidden rounded-2xl p-6 shadow-sm transition hover:border-primary/40 hover:shadow-md"
               >
-                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl transition group-hover:scale-150" />
-                <div className="relative">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary transition group-hover:scale-110">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {item.description}
-                  </p>
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/15 text-accent-text transition group-hover:scale-110">
+                  <Icon className="h-6 w-6" />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-gradient-to-r from-primary via-accent to-highlight transition-transform duration-500 group-hover:scale-x-100" />
+                <h3 className="mt-4 font-display text-lg font-bold text-[var(--text)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {item.description}
+                </p>
+                <div className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
               </motion.article>
             );
           })}

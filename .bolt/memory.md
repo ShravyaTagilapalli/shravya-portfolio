@@ -2,43 +2,49 @@
 
 ## Product intent & audience
 
-- Personal portfolio for Shravya Tagilapalli, showcasing professional experience and Data Analytics projects.
-- Intended for recruiters, hiring managers, and other professional visitors.
-- Deployment target is GitHub Pages at `https://ShravyaTagilapalli.github.io/shravya-portfolio/`.
-- Existing portfolio content and functionality should be preserved rather than redesigned.
+- Personal portfolio for Shravya Tagilapalli, presenting enterprise IT/application support experience and a transition toward Data Analytics.
+- Primary audience: recruiters, hiring managers, and professional contacts.
+- Existing verified professional, project, education, certification, contact, and downloadable-asset content should be preserved while presentation is upgraded.
+- Deployment target remains GitHub Pages at `https://ShravyaTagilapalli.github.io/shravya-portfolio/`.
 
 ## Brand personality & voice
 
-- Professional, polished, and portfolio-oriented.
-- Existing visual identity includes purple gradients, animations, and dark/light mode.
-- Preserve the established presentation of experience, projects, profile information, and downloadable work.
+- Executive, polished, credible, and technically grounded.
+- Position the portfolio as an experienced enterprise IT professional growing into Data Analytics.
+- Keep claims factual; distinguish established expertise from technologies currently being learned.
+- Avoid invented achievements, ratings, client engagements, or unsupported project details.
 
 ## Visual design & UX direction
 
-- Maintain the current design, navigation, animations, purple gradient treatment, and dark/light theme.
-- Preserve existing professional experience and Data Analytics project sections.
-- Asset URLs and internal navigation must work from the `/shravya-portfolio/` GitHub Pages subpath, not only from the domain root.
-- Relevant deployment-sensitive assets include the profile photo, resume download, Excel dashboard download, and case-study screenshots.
-- Production build output should be treated as the source of truth for checking rewritten asset references.
+- Current redesign direction is premium Executive Tech: navy and teal branding replacing the former purple-gradient emphasis.
+- Use structured layouts, strong hierarchy, restrained contrast, clean cards, and professional whitespace rather than generic templates.
+- Hero uses a professional split-screen composition; navigation is elegant and sticky.
+- Experience is presented as a full-width career timeline.
+- Skills use grouped technical cards with lightweight icons; avoid proficiency bars and percentage ratings.
+- Projects use responsive case-study cards and separate professional/enterprise work from Data Analytics work.
+- Education, certifications, contact, expertise, career-transition content, footer, back-to-top control, and case-study modals have been restyled consistently.
+- Preserve light/dark theme support, subtle interactions, readable contrast, semantic structure, keyboard usability, responsive layouts, and reduced-motion considerations.
+- Important deployment-sensitive assets include profile photo, resume, Excel workbook, dashboard screenshot, case-study screenshots, and internal section/navigation links.
 
 ## Decisions, constraints & rationale
 
-- Vite production base path is configured as `/shravya-portfolio/` in `vite.config.ts`.
-- Added `.github/workflows/deploy.yml` for deployment on pushes to `main`; it uses `npm ci`, `npm run build`, and deploys the generated `dist` directory through GitHub Actions.
-- Updated deployment-sensitive paths in:
-  - `src/components/sections/Hero.tsx`
-  - `src/data/content.ts`
-  - `src/data/rejectShopCaseStudy.ts`
-- The production build completed successfully after the path changes.
-- Supabase appears in dependencies but is not called from `src`; current site functionality is static and does not require Supabase.
-- No redesign, content deletion, or new repository creation was intended.
-- Local Git synchronization was not completed because the working folder was not available as a Git repository and Git commands could not be run from the current environment.
-- Repository target is the existing public `ShravyaTagilapalli/shravya-portfolio`.
+- `vite.config.ts` retains the Vite base path `/shravya-portfolio/`; asset and download references must work beneath that subpath.
+- `.github/workflows/deploy.yml` and the existing `npm run build` deployment flow are preserved.
+- GitHub Pages remains static hosting; no server requirement or repository migration is intended.
+- Existing components were restyled or reorganized in place instead of replacing the application or deleting project content.
+- Skills were regrouped to distinguish established skills from currently learning technologies. Learning status must not imply expertise.
+- The Reject Shop project remains an educational TDAI Data Analytics course assignment using its verified Excel dashboard, screenshot, and original workbook format.
+- Existing case-study modals and project entries should remain accessible without duplication.
+- Production build passes after the navy/teal redesign and path checks. A missing `FileSpreadsheet` import in the Reject Shop modal was identified and fixed.
+- Verified built output includes the `/shravya-portfolio/` prefix for resume, workbook, and profile-photo paths; section anchors were also confirmed.
+- Supabase is present in dependencies but unused by the current static application; do not introduce backend dependence without a future requirement.
+- Git synchronization was not completed because the working directory was not available as a Git repository and no GitHub connection was available.
 
 ## Open questions & assumptions
 
-- GitHub synchronization still needs confirmation; the workflow and source changes must reach the existing repository.
-- GitHub Pages may need its source set to **GitHub Actions** in repository settings.
-- The live GitHub Pages URL was not checked; verify deployment completion, asset downloads, screenshots, internal links, theme switching, and client-side navigation after the workflow runs.
-- Confirm that the workflow has sufficient repository permissions for Pages deployment and that the default branch is `main`.
-- Supabase-related static-hosting concerns are currently considered inactive because no application code uses it; reassess if future features add backend-dependent behavior.
+- Confirm that the latest source changes are synchronized to `ShravyaTagilapalli/shravya-portfolio`.
+- Confirm GitHub Pages is configured to deploy from GitHub Actions and that the workflow has required permissions.
+- Browser-level validation remains outstanding for mobile layouts, dark mode, reduced-motion behavior, navigation, downloads, case-study modals, and responsive screenshots.
+- The favicon still references `/vite.svg`, which may fail under the GitHub Pages subpath and should be replaced or made base-path aware.
+- Confirm the dashboard screenshot contains no unintended manager, buyer, or other private names.
+- Reassess static-hosting assumptions if future portfolio features add backend or Supabase functionality.

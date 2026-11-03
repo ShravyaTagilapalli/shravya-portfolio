@@ -44,8 +44,8 @@ export default function Contact() {
   ) => {
     const err = errors[name];
     const common =
-      'w-full rounded-xl border bg-soft/60 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20';
-    const borderCls = err ? 'border-accent/60' : 'border-soft';
+      'w-full rounded-xl border bg-[var(--bg)] px-4 py-3 text-sm text-[var(--text)] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20';
+    const borderCls = err ? 'border-accent-text' : 'border-soft';
     return (
       <div className="flex flex-col gap-1.5">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted">
@@ -67,7 +67,7 @@ export default function Contact() {
           />
         )}
         {err && (
-          <span className="flex items-center gap-1 text-xs text-accent">
+          <span className="flex items-center gap-1 text-xs text-accent-text">
             <AlertCircle className="h-3 w-3" />
             {err}
           </span>
@@ -77,7 +77,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-14 sm:py-20">
+    <section id="contact" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-5xl px-5">
         <SectionHeading
           eyebrow="Contact"
@@ -89,24 +89,24 @@ export default function Contact() {
           subtitle="I'm open to opportunities in Data Analytics, Business Intelligence, SQL Reporting, and related fields."
         />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-[0.85fr_1.15fr]">
+        <div className="mt-14 grid gap-6 md:grid-cols-[0.85fr_1.15fr]">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-4 rounded-3xl glass gradient-border p-7"
+            className="card-surface flex flex-col gap-4 rounded-2xl p-7 shadow-sm"
           >
             <a
               href={`mailto:${profile.email}`}
-              className="group flex items-center gap-4 rounded-2xl border border-soft bg-soft/60 p-4 transition hover:-translate-y-0.5 hover:border-primary/40"
+              className="group flex items-center gap-4 rounded-xl border border-soft bg-[var(--bg)] p-4 transition hover:-translate-y-0.5 hover:border-primary/50"
             >
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/15 text-accent-text">
                 <Mail className="h-5 w-5" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="text-xs uppercase tracking-wider text-muted">Email</div>
-                <div className="font-medium transition group-hover:text-primary">
+                <div className="truncate font-medium text-[var(--text)] transition group-hover:text-accent-text">
                   {profile.email}
                 </div>
               </div>
@@ -116,22 +116,22 @@ export default function Contact() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-2xl border border-soft bg-soft/60 p-4 transition hover:-translate-y-0.5 hover:border-accent/40"
+              className="group flex items-center gap-4 rounded-xl border border-soft bg-[var(--bg)] p-4 transition hover:-translate-y-0.5 hover:border-primary/50"
             >
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-accent">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/15 text-accent-text">
                 <Linkedin className="h-5 w-5" />
               </div>
               <div>
                 <div className="text-xs uppercase tracking-wider text-muted">LinkedIn</div>
-                <div className="font-medium transition group-hover:text-accent">
+                <div className="font-medium text-[var(--text)] transition group-hover:text-accent-text">
                   View profile
                 </div>
               </div>
             </a>
 
-            <div className="mt-auto rounded-2xl border border-soft bg-soft/40 p-4 text-xs leading-relaxed text-muted">
+            <div className="mt-auto rounded-xl border border-soft p-4 text-xs leading-relaxed text-muted">
               Prefer email? Clicking the contact form opens your email app
-              pre-filled — no message is sent automatically.
+              pre-filled. No message is sent automatically.
             </div>
           </motion.div>
 
@@ -141,7 +141,7 @@ export default function Contact() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
             onSubmit={onSubmit}
-            className="flex flex-col gap-4 rounded-3xl glass gradient-border p-7"
+            className="card-surface flex flex-col gap-4 rounded-2xl p-7 shadow-sm"
             noValidate
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -155,9 +155,9 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-start gap-2 rounded-xl border border-highlight/40 bg-highlight/10 p-3 text-sm text-muted"
+                className="flex items-start gap-2 rounded-xl border border-primary/40 bg-primary/10 p-3 text-sm text-[var(--text)]"
               >
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-highlight" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-text" />
                 <span>
                   Your email app should now be open with this message pre-filled.
                   Just press send from there to deliver it.
@@ -167,7 +167,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:-translate-y-0.5 hover:shadow-pink"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-ink shadow-md shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-primary-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
             >
               <Send className="h-4 w-4 transition group-hover:translate-x-0.5" />
               Get in Touch

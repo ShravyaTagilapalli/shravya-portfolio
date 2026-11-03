@@ -16,19 +16,6 @@ export const profile = {
   resumeUrl: `${import.meta.env.BASE_URL}Shravya_Tagilapalli_Resume.docx`,
 };
 
-export const highlights = [
-  { value: '6.5 Years', label: 'Professional Experience' },
-  { value: '3 Companies', label: 'Career Journey' },
-  { value: 'Data Analytics', label: 'Current Focus' },
-];
-
-export const aboutJourney = [
-  { label: 'IT Experience', icon: 'Server' },
-  { label: 'SQL & Reporting', icon: 'Database' },
-  { label: 'Business Intelligence', icon: 'BarChart3' },
-  { label: 'Data Analytics', icon: 'LineChart' },
-];
-
 export const experience = [
   {
     company: 'Wipro',
@@ -195,24 +182,31 @@ export type SkillCategory = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: 'Data Analytics',
-    status: 'developing',
+    name: 'Enterprise Applications',
+    status: 'established',
     skills: [
-      { name: 'Power BI', icon: 'LayoutDashboard' },
-      { name: 'Tableau', icon: 'PieChart' },
-      { name: 'Python', icon: 'Code2' },
-      { name: 'Microsoft Excel', icon: 'Sheet' },
+      { name: 'Oracle Retail RMS', icon: 'Building2' },
+      { name: 'Oracle RDW', icon: 'Building2' },
+      { name: 'ReSA', icon: 'Building2' },
     ],
   },
   {
-    name: 'Database',
+    name: 'Databases & Development',
     status: 'established',
-    skills: [{ name: 'SQL', icon: 'Database' }],
+    skills: [
+      { name: 'SQL', icon: 'Database' },
+      { name: 'Basic Unix Shell Scripting', icon: 'Terminal' },
+    ],
   },
   {
-    name: 'Enterprise Technology',
+    name: 'Production Support & Delivery',
     status: 'established',
-    skills: [{ name: 'Oracle Retail Applications', icon: 'Building2' }],
+    skills: [
+      { name: 'Production Support', icon: 'LifeBuoy' },
+      { name: 'Incident & Problem Management', icon: 'Wrench' },
+      { name: 'Root Cause Analysis', icon: 'Workflow' },
+      { name: 'Functional Consulting', icon: 'Briefcase' },
+    ],
   },
   {
     name: 'Reporting',
@@ -223,21 +217,19 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: 'Scripting',
-    status: 'established',
-    skills: [{ name: 'Basic Unix Shell Scripting', icon: 'Terminal' }],
-  },
-  {
-    name: 'Professional Expertise',
-    status: 'established',
+    name: 'Currently Learning',
+    status: 'developing',
     skills: [
-      { name: 'Production Support', icon: 'LifeBuoy' },
-      { name: 'Functional Consulting', icon: 'Briefcase' },
-      { name: 'Application Troubleshooting', icon: 'Wrench' },
-      { name: 'Business Process Understanding', icon: 'Workflow' },
+      { name: 'Microsoft Excel', icon: 'Sheet' },
+      { name: 'Power BI', icon: 'LayoutDashboard' },
+      { name: 'Tableau', icon: 'PieChart' },
+      { name: 'Python', icon: 'Code2' },
+      { name: 'PySpark', icon: 'Code2' },
+      { name: 'Data Engineering', icon: 'Workflow' },
     ],
   },
 ];
+
 
 export const expertise = [
   {

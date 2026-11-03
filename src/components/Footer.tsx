@@ -6,12 +6,12 @@ export default function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <footer className="relative border-t border-soft py-12">
+    <footer className="relative border-t border-soft py-14">
       <div className="mx-auto max-w-6xl px-5">
-        <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_0.8fr]">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_0.8fr]">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2 font-display text-lg font-semibold">
-              <span className="grid h-8 w-8 place-items-center rounded-xl bg-gradient-to-br from-primary via-secondary to-accent text-white">
+            <div className="flex items-center gap-2 font-display text-lg font-bold text-[var(--text)]">
+              <span className="grid h-8 w-8 place-items-center rounded-xl bg-primary text-ink">
                 S
               </span>
               <span>
@@ -31,12 +31,12 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
               Navigate
             </h3>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
               {navItems.map((n) => (
                 <button
                   key={n.id}
                   onClick={() => go(n.id)}
-                  className="text-sm text-muted transition hover:text-primary"
+                  className="text-sm text-muted transition hover:text-accent-text"
                 >
                   {n.label}
                 </button>
@@ -52,7 +52,7 @@ export default function Footer() {
               <a
                 href={`mailto:${profile.email}`}
                 aria-label="Email"
-                className="grid h-10 w-10 place-items-center rounded-full border border-soft glass transition hover:-translate-y-0.5 hover:text-primary"
+                className="card-surface grid h-11 w-11 place-items-center rounded-full text-[var(--text)] transition hover:-translate-y-0.5 hover:text-accent-text"
               >
                 <Mail className="h-4 w-4" />
               </a>
@@ -61,14 +61,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="grid h-10 w-10 place-items-center rounded-full border border-soft glass transition hover:-translate-y-0.5 hover:text-accent"
+                className="card-surface grid h-11 w-11 place-items-center rounded-full text-[var(--text)] transition hover:-translate-y-0.5 hover:text-accent-text"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 aria-label="Back to top"
-                className="grid h-10 w-10 place-items-center rounded-full border border-soft glass transition hover:-translate-y-0.5 hover:text-primary"
+                className="card-surface grid h-11 w-11 place-items-center rounded-full text-[var(--text)] transition hover:-translate-y-0.5 hover:text-accent-text"
               >
                 <ArrowUp className="h-4 w-4" />
               </button>
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-soft pt-6 text-xs text-muted sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-soft pt-6 text-xs text-muted sm:flex-row">
           <p>
             © {new Date().getFullYear()} Shravya Tagilapalli. All rights
             reserved.

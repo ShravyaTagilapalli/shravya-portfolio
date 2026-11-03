@@ -1,129 +1,103 @@
-import { Download, Linkedin, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-import { profile, highlights } from '@/data/content';
-import FloatingShapes from '@/components/FloatingShapes';
+import { profile } from '@/data/content';
+
+const stats = [
+  { value: '6.5+', label: 'Years Experience' },
+  { value: '3', label: 'Companies' },
+  { value: 'In Progress', label: 'Data Analytics' },
+];
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: 'easeOut' as const },
+});
 
 export default function Hero() {
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden bg-radial-fade pt-28 pb-16 sm:pt-32 sm:pb-20"
-    >
-      <FloatingShapes />
-
-      <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 md:grid-cols-[1.25fr_0.75fr] md:gap-12">
-        {/* Left: introduction content */}
-        <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-soft glass px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-muted"
-          >
-            <Sparkles className="h-3.5 w-3.5 text-accent" />
-            Data Analytics Portfolio
-          </motion.span>
+    <section id="home" className="relative overflow-hidden bg-radial-fade pt-32 pb-20 sm:pt-36 sm:pb-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+        <div className="flex flex-col gap-6 text-center md:text-left">
+          <motion.p {...fadeUp(0)} className="text-xs font-semibold uppercase tracking-[0.24em] text-accent-text">
+            Hello, I'm
+          </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
+            {...fadeUp(0.06)}
+            className="font-display text-5xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl"
           >
-            Hi, I'm{' '}
-            <span className="gradient-text-anim">Shravya Tagilapalli</span>
+            {profile.name}
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-base font-semibold sm:text-lg md:justify-start"
-          >
-            <span className="gradient-text-anim">Aspiring Data Analyst</span>
-            <span className="text-primary/50" aria-hidden="true">|</span>
-            <span className="text-foreground/80">Production Support Analyst</span>
-            <span className="text-primary/50" aria-hidden="true">|</span>
-            <span className="text-muted">Functional Consultant</span>
-          </motion.div>
+          <motion.p {...fadeUp(0.12)} className="font-display text-lg font-semibold text-[var(--text)] sm:text-xl">
+            IT Professional <span className="text-primary">|</span> Application Support{' '}
+            <span className="text-primary">|</span> Data Analytics
+          </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
-            className="mt-1 grid w-full max-w-lg grid-cols-3 gap-3"
-          >
-            {highlights.map((h) => (
-              <div
-                key={h.label}
-                className="gradient-border rounded-2xl bg-soft/60 p-4 text-center"
-              >
-                <div className="gradient-text font-display text-base font-bold sm:text-lg">
-                  {h.value}
-                </div>
-                <div className="mt-1 text-[10px] font-medium uppercase tracking-wide text-muted sm:text-[11px]">
-                  {h.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+          <motion.p {...fadeUp(0.18)} className="mx-auto max-w-xl text-base leading-[1.6] text-muted sm:text-lg md:mx-0">
+            6.5+ years of experience supporting enterprise retail applications, developing SQL-based solutions, and
+            solving complex business and technical problems. Currently expanding my expertise in Data Analytics and
+            modern data technologies.
+          </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 md:justify-start"
-          >
+          <motion.div {...fadeUp(0.24)} className="flex flex-wrap justify-center gap-3 md:justify-start">
             <button
-              onClick={() => scrollTo('skills')}
-              className="group relative inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:-translate-y-0.5 hover:shadow-pink"
+              onClick={() => scrollTo('projects')}
+              className="group inline-flex items-center gap-2 rounded-lg bg-secondary px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-secondary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:bg-primary dark:text-ink dark:hover:bg-primary-300"
             >
-              Explore My Skills
-              <Sparkles className="h-4 w-4" />
+              Explore My Work
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </button>
-
             <a
               href={profile.resumeUrl}
               download="Shravya_Tagilapalli_Resume.docx"
-              className="inline-flex items-center gap-2 rounded-xl border border-soft glass px-5 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-lg border border-soft bg-[var(--bg-soft)] px-6 py-3 text-sm font-semibold text-[var(--text)] transition hover:-translate-y-0.5 hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               <Download className="h-4 w-4" />
               Download Resume
             </a>
-
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-soft glass px-5 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:text-accent"
+              aria-label="LinkedIn profile (opens in a new tab)"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-soft bg-[var(--bg-soft)] text-[var(--text)] transition hover:-translate-y-0.5 hover:border-primary hover:text-accent-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
-              <Linkedin className="h-4 w-4" />
-              Connect on LinkedIn
+              <Linkedin className="h-5 w-5" />
             </a>
           </motion.div>
 
+          <motion.dl
+            {...fadeUp(0.3)}
+            className="grid grid-cols-3 gap-4 border-t border-soft pt-6"
+          >
+            {stats.map((s) => (
+              <div key={s.label} className="text-center md:text-left">
+                <dd className="font-display text-xl font-bold text-[var(--text)] sm:text-2xl">{s.value}</dd>
+                <dt className="mt-1 text-xs font-medium text-muted sm:text-sm">{s.label}</dt>
+              </div>
+            ))}
+          </motion.dl>
         </div>
 
-        {/* Right: profile photo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative mx-auto flex w-full items-center justify-center md:mx-0"
+          transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+          className="relative mx-auto w-full max-w-sm md:max-w-none"
         >
-          <div className="absolute h-56 w-56 animate-glow rounded-full bg-gradient-to-tr from-primary/40 via-accent/30 to-highlight/30 blur-3xl" />
-          <div className="relative aspect-square w-48 overflow-hidden rounded-full bg-gradient-to-tr from-primary via-accent to-highlight p-[3px] shadow-2xl shadow-primary/40 sm:w-56 md:w-60">
-            <div className="h-full w-full overflow-hidden rounded-full bg-soft">
-              <img
-                src={`${import.meta.env.BASE_URL}assets/images/shravya_professional.png`}
-                alt="Shravya Tagilapalli"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
+          <div className="absolute -right-4 -top-4 h-full w-full rounded-3xl border border-primary/40" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-3xl bg-secondary p-3 shadow-xl shadow-secondary/20 dark:bg-[var(--card)]">
+            <img
+              src={`${import.meta.env.BASE_URL}assets/images/shravya_professional.png`}
+              alt="Professional portrait of Shravya Tagilapalli"
+              className="aspect-[4/5] w-full rounded-2xl object-cover object-top"
+            />
           </div>
         </motion.div>
       </div>

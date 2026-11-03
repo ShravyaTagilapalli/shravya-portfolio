@@ -6,12 +6,9 @@ import { getIcon } from '@/components/icons';
 
 export default function CareerTransition() {
   return (
-    <section className="relative py-14 sm:py-20">
+    <section className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-5">
-        <div className="relative overflow-hidden rounded-3xl glass gradient-border p-8 sm:p-12">
-          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
-          <div className="absolute -right-16 -bottom-16 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
-
+        <div className="card-surface relative overflow-hidden rounded-3xl p-8 shadow-sm sm:p-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -19,10 +16,10 @@ export default function CareerTransition() {
             transition={{ duration: 0.6 }}
             className="relative mx-auto max-w-2xl text-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-soft bg-soft/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center gap-2 rounded-full border border-soft px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent-text">
               Career Transition
             </span>
-            <h2 className="mt-4 font-display text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+            <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl md:text-4xl">
               Bridging Enterprise Technology and{' '}
               <span className="gradient-text">Data Analytics</span>
             </h2>
@@ -48,15 +45,15 @@ export default function CareerTransition() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.45, delay: i * 0.08 }}
-                    className="flex w-full items-center gap-3 rounded-2xl border border-soft bg-soft/60 p-4 sm:flex-col sm:text-center"
+                    className="flex w-full items-center gap-3 rounded-xl border border-soft bg-[var(--bg)] p-4 sm:flex-col sm:text-center"
                   >
-                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/15 text-accent-text">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <div className="text-sm font-semibold">{step.label}</div>
+                    <div className="text-sm font-semibold text-[var(--text)]">{step.label}</div>
                   </motion.div>
                   {i < transitionSteps.length - 1 && (
-                    <ArrowRight className="hidden h-5 w-5 shrink-0 text-accent sm:rotate-0 md:block" />
+                    <ArrowRight className="hidden h-5 w-5 shrink-0 text-accent-text md:block" />
                   )}
                 </div>
               );

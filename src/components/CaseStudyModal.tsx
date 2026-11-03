@@ -39,7 +39,7 @@ function IconButton({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-soft bg-soft/60 px-2.5 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-primary"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-soft bg-[var(--bg-soft)] px-2.5 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-accent-text"
     >
       {children}
     </button>
@@ -88,7 +88,7 @@ function SqlBlock({ item, index }: { item: { label: string; description: string;
             transition={{ duration: 0.25 }}
             className="border-t border-soft"
           >
-            <div className="flex items-center justify-between bg-[var(--bg-soft)]/80 px-5 py-2 text-[11px] uppercase tracking-wider text-muted">
+            <div className="flex items-center justify-between bg-[var(--bg-soft)] px-5 py-2 text-[11px] uppercase tracking-wider text-muted">
               <span>SQL</span>
               <IconButton label="Copy SQL" onClick={copy}>
                 {copied ? <ClipboardCheck className="h-3.5 w-3.5 text-accent" /> : <Clipboard className="h-3.5 w-3.5" />}
@@ -144,13 +144,13 @@ export default function CaseStudyModal({ open, onClose }: Props) {
               type="button"
               onClick={onClose}
               aria-label="Close case study"
-              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-soft bg-soft/60 text-muted transition hover:text-primary"
+              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-soft bg-[var(--bg-soft)] text-muted transition hover:text-accent-text"
             >
               <X className="h-4 w-4" />
             </button>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary to-accent px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-ink">
                 <Lightbulb className="h-3.5 w-3.5" />
                 Simulated Case Study
               </span>
@@ -168,14 +168,14 @@ export default function CaseStudyModal({ open, onClose }: Props) {
               {rmsCaseStudy.technologies.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-soft bg-soft/60 px-3 py-1.5 text-xs font-medium text-muted"
+                  className="rounded-full border border-soft bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-muted"
                 >
                   {t}
                 </span>
               ))}
             </div>
 
-            <div className="mt-6 rounded-2xl border border-soft bg-soft/40 p-4 text-sm leading-relaxed text-muted">
+            <div className="mt-6 rounded-2xl border border-soft bg-[var(--bg-soft)] p-4 text-sm leading-relaxed text-muted">
               <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">
                 Scenario
               </div>
@@ -264,7 +264,7 @@ export default function CaseStudyModal({ open, onClose }: Props) {
                       className="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-highlight/15 p-4 ring-1 ring-primary/20"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-xs font-bold text-white">
+                        <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-xs font-bold text-ink">
                           {i + 1}
                         </span>
                         <div>
@@ -281,7 +281,7 @@ export default function CaseStudyModal({ open, onClose }: Props) {
                   </div>
                 ))}
               </div>
-              <p className="mt-3 rounded-xl border border-soft bg-soft/40 p-3 text-xs italic text-muted">
+              <p className="mt-3 rounded-xl border border-soft bg-[var(--bg-soft)] p-3 text-xs italic text-muted">
                 {rmsCaseStudy.rootCauseNote}
               </p>
             </section>
@@ -350,7 +350,7 @@ export default function CaseStudyModal({ open, onClose }: Props) {
                 {rmsCaseStudy.skills.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-soft bg-soft/60 px-3 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-primary"
+                    className="rounded-full border border-soft bg-[var(--bg-soft)] px-3 py-1.5 text-xs font-medium text-muted transition hover:border-primary/40 hover:text-accent-text"
                   >
                     {s}
                   </span>
@@ -374,7 +374,7 @@ export default function CaseStudyModal({ open, onClose }: Props) {
               </div>
             </section>
 
-            <div className="mt-8 flex items-start gap-2 rounded-2xl border border-soft bg-soft/40 p-4 text-xs leading-relaxed text-muted">
+            <div className="mt-8 flex items-start gap-2 rounded-2xl border border-soft bg-[var(--bg-soft)] p-4 text-xs leading-relaxed text-muted">
               <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span>{rmsCaseStudy.disclaimer}</span>
             </div>
@@ -383,7 +383,7 @@ export default function CaseStudyModal({ open, onClose }: Props) {
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary via-secondary to-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-ink shadow-md shadow-primary/20 transition hover:-translate-y-0.5"
               >
                 <CheckCircle2 className="h-4 w-4" />
                 Close
