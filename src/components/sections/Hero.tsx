@@ -71,18 +71,6 @@ export default function Hero() {
               <Linkedin className="h-5 w-5" />
             </a>
           </motion.div>
-
-          <motion.dl
-            {...fadeUp(0.3)}
-            className="grid grid-cols-3 gap-4 border-t border-soft pt-6"
-          >
-            {stats.map((s) => (
-              <div key={s.label} className="text-center md:text-left">
-                <dd className="font-display text-xl font-bold text-[var(--text)] sm:text-2xl">{s.value}</dd>
-                <dt className="mt-1 text-xs font-medium text-muted sm:text-sm">{s.label}</dt>
-              </div>
-            ))}
-          </motion.dl>
         </div>
 
         <motion.div
@@ -101,6 +89,28 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      <motion.dl
+        {...fadeUp(0.3)}
+        className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-4 px-5 sm:px-8 md:mt-16 md:grid-cols-3 md:gap-6"
+      >
+        {stats.map((s) => (
+          <div
+            key={s.label}
+            className="card-surface group relative overflow-hidden rounded-2xl p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 lg:p-7"
+          >
+            <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-primary" />
+            <dd
+              className={`font-display font-extrabold leading-none tracking-tight text-[var(--text)] ${
+                s.value.length > 4 ? 'text-2xl lg:text-3xl' : 'text-4xl lg:text-5xl'
+              }`}
+            >
+              {s.value}
+            </dd>
+            <dt className="mt-3 text-sm font-medium text-muted">{s.label}</dt>
+          </div>
+        ))}
+      </motion.dl>
     </section>
   );
 }

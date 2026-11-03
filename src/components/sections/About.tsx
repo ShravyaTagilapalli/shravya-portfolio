@@ -12,7 +12,7 @@ const background = [
 ];
 
 const learning = [
-  'Certified Data Analyst at The Data Analytics Institute (TDAI), in progress.',
+  'Full Stack Development Program (FSDP) at The Data Analytics Institute (TDAI), in progress.',
   'Excel, PivotTables, and Power BI for dashboard development.',
   'Python and PySpark, with Data Engineering concepts.',
   'AI-assisted application development using Claude.',

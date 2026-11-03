@@ -277,7 +277,7 @@ export const education = {
 };
 
 export const certification = {
-  title: 'Certified Data Analyst',
+  title: 'Full Stack Development Program (FSDP)',
   institute: 'The Data Analytics Institute (TDAI)',
   duration: 'October 2026 – March 2027',
   status: 'In Progress',
